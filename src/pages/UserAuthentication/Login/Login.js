@@ -58,7 +58,7 @@ const Login = () => {
   const { users, setUser } = useContext(localContext);
   const [errMessage, SetErrMessage] = useState('');
   const [selectedAvatar, setSelectedAvatar] = useState('center');
-  const [userType, setUserType] = useState("4");
+  const [userType, setUserType] = useState("1");
   const [phone, setPhone] = useState('');
   const [iqamaId, setIqamaId] = useState('');
   const [otp, setOtp] = useState('');
@@ -103,7 +103,7 @@ const Login = () => {
       return { isSuccessful: false, message: OTPAuth.message };
     }
     setCurrentUser(users);
-    navigate('/app/dashboard', { replace: true }, { state: { selectedAvatar } });
+    navigate('/app/dashboard', { replace: true }, { state: { selectedAvatar, userType } });
     // }
     return true;
   };
@@ -151,7 +151,7 @@ const Login = () => {
                       <Avatar
                         className={classes.large + ' ' + classes.avatarHover}
                         onClick={() => {
-                          setUserType("4");
+                          setUserType("2");
                           setSelectedAvatar('beneficiary'),
                             setColor({ ...avtarColor, beneficiaryAvatar: '#214256', centerAvatar: '#c8d9d9', employeeAvatar: '#c8d9d9' })
                         }
@@ -167,7 +167,7 @@ const Login = () => {
                       <Avatar
                         className={classes.large + ' ' + classes.avatarHover}
                         onClick={() => {
-                          setUserType("2");
+                          setUserType("1");
                           setSelectedAvatar('center'),
                             setColor({ ...avtarColor, beneficiaryAvatar: '#c8d9d9', centerAvatar: '#214256', employeeAvatar: '#c8d9d9' })
                         }}

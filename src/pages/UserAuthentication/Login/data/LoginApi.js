@@ -1,10 +1,11 @@
 const { APIRequest } = require("src/api/APIRequest");
 
-const LoginRequest = async (email, password) => {
+const LoginRequest = async (email, password, userType) => {
 
   const requestBody = {
     username: email,
-    password: password
+    password: password,
+    userLoginType:userType,
   };
 
   const url = '/taheel-apis-users-login-v2'
